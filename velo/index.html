@@ -1,0 +1,130 @@
+git remote add origin git@github.com:HaumeaStarr/Exo_velo.git
+git branch -M main
+git push -u origin main
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="images/favicon.ico" /> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/ba3554ebfa.js" crossorigin="anonymous"></script> <!-- Script Font Awesome-->
+    <title>Vélo'c</title>
+</head>
+
+<body>
+
+    <!-- Titre Principal et Logo -->
+
+    <h1>Bienvenue sur Vélo'C</h1>
+
+    <div id="logo">
+        <img class="logo" src="images/logo.png" alt="logo vélo">
+    </div>
+
+    <!-- Sous-Titre -->
+
+    <h2>Louez <span class="underline">facilement</span> et <span class="underline">rapidement</span> votre vélo !</h2>
+
+
+    <!-- Slider d'images Vélos -->
+
+    <div id="slider">
+        <img class="slide" id="slide-1" src="images/Slide1.jpg" alt="Nancy">
+        <img class="slide" id="slide-2" src="images/Slide2.jpg" alt="Station de vélo alignés">
+        <img class="slide" id="slide-3" src="images/Slide3.jpg" alt="Vélo rouge alignés">
+        <img class="slide" id="slide-4" src="images/Slide4.jpg" alt="Vélo rouge alignés">
+    </div>
+
+    <!-- Boutons de Navigation du Slider -->
+
+    <div id="previous_slide">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div id="play_pause">
+        <div id="play">
+            <i class="far fa-play-circle"></i>
+        </div>
+        <div id="pause">
+            <i class="far fa-pause-circle"></i>
+        </div>
+    </div>
+    <div id ="next_slide">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <!-- Carte -->
+
+    <div id="mapid"></div>
+
+    <!-- Réservation -->
+
+    <section id="reserv_section">
+        <h3>Détails de la Station</h3>
+        <p id ="reserv_name"><b>Nom :</b></p>
+        <p id ="reserv_address"><b>Adresse :</b></p>
+        <p id ="reserv_status"><b>Status :</b></p>
+        <p id ="reserv_available_space"><b>Places disponibles :</b></p>
+        <p id="reserv_available_bike"><b>Vélos disponibles :</b></p>
+        <div id="reserv_btn">
+            <p><b>Sélectionner cette station</b></p>
+        </div>
+    </section>
+
+    <section id="formulaire_section">
+        <div id="formulaire_resa">
+            <h3>Formulaire de Réservation</h3>
+            <form id="form">
+                <div class="input_name">
+                    <label><b>Veuillez indiquer votre nom : </b></label>
+                    <input id="input_name" type="text" name="name" size="25" minlength="2" maxlength="20" pattern="[a-zA-ZÀ-ÿ-]+" title="Pas de chiffres ni caractères spéciaux." required>
+                </div>
+                <div class="input_prenom">
+                    <label><b>Veuillez indiquer votre prénom : </b></label>
+                    <input id="input_prenom" type="text" name="name" size="22" minlength="2" maxlength="20" pattern="[a-zA-ZÀ-ÿ-]+" title="Pas de chiffres ni caractères spéciaux." required>
+                    <input type="submit" id="submit_button" value="Enregistrer">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="signature_section">
+        <div id="canvas_resa">
+            <h3 id="canvas_title">Veuillez signer</h3>
+            <canvas id="canvas" width="450" height="115"></canvas>
+            <a href="#timer" id="valid_button"><b>Réserver</b></a>
+            <button id="cancel_button" type="button"><b>Annuler la Réservation</b></button>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div id="footer_recap"> 
+            <p id="recap_station"><b>Vélo réservé à la station : </b></p>
+            <p id="recap_address"><b>À l'adresse : </b></p>
+            <p id ="recap_name"><b>Par : </b></p>
+        </div>
+        <div id="footer_timer">
+            <h3>Temps restant</h3>
+            <div id="timer">
+                <span id="minutes">30</span> :
+                <span id="seconds">00</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/ajax.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/reservation.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/timer.js"></script>
+</body>
+
+</html>
